@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="gbk"?><banner_swf>
+	<fixedbn img="flash/main_mini.jpg" alpha_num="0">
+		<fixedlink posx="0" posy="0" scalex="1510" scaley="800" bnurl="javascript:open_window('http://sc.chinaz.com/')" bntarget="_self" bntitle="站长素材"></fixedlink>
+		<fixedlink posx="0" posy="80" scalex="1510" scaley="1150" bnurl="http://sc.chinaz.com/" bntarget="_self" bntitle="性感美女欣赏"></fixedlink>
+	</fixedbn>
+
+	<banner img="flash/1.jpg" bnurl="http://sc.chinaz.com/" bntarget="_blank" bntitle="性感美女欣赏！"></banner>
+	<banner img="flash/2.jpg" bnurl="http://sc.chinaz.com/" bntarget="_blank" bntitle="性感美女欣赏"></banner>
+	<banner img="flash/3.jpg" bnurl="http://sc.chinaz.com/" bntarget="_blank" bntitle="性感美女欣赏！"></banner>
+	<banner img="flash/4.jpg" bnurl="http://sc.chinaz.com/" bntarget="_blank" bntitle="性感美女欣赏"></banner>
+	<banner img="flash/5.jpg" bnurl="http://sc.chinaz.com/" bntarget="_blank" bntitle="性感美女欣赏"></banner>
+	<banner img="flash/6.jpg" bnurl="http://sc.chinaz.com/" bntarget="_blank" bntitle="性感美女欣赏"></banner>
+	<banner img="flash/7.jpg" bnurl="http://sc.chinaz.com/" bntarget="_blank" bntitle="性感美女欣赏"></banner>
+	<banner img="flash/8.jpg" bnurl="http://sc.chinaz.com/" bntarget="_blank" bntitle="性感美女欣赏"></banner>
+</banner_swf><!-- Published at 2008-09-13 05:24:12, Powered by CMSware 2.8.5 Free -->

@@ -1,0 +1,121 @@
+<script type="text/javascript" src="{$t_dir}js/calendar5.js"></script>
+
+<div class = "row">
+<div class =  "main_left">
+  <div id="navigation" style="display:{$sidebarMenu}">
+    <ul>
+      <!-- CSS Tabs --> 
+      {section name=sdMenu loop=$sub_menu}
+      {if $sub_menu[sdMenu].menuID ==  $pmenu_id}
+      
+      <li><a href="{$nav_menu[sdMenu].linkurl}menuID={$nav_menu[sdMenu].menuID}"> {$sub_menu[sdMenu].menuTitle}</a> {if $sub_menu[sdMenu].subMenuCount > 0}
+        <ul>
+          {section name=i loop=$sub_menu}
+          {if $sub_menu[i].parentID ==  $pmenu_id}
+         
+          <li><a href="{$nav_menu[i].linkurl}&amp;menuID={$nav_menu[sdMenu].menuID}"> {$sub_menu[i].menuTitle}</a> 
+          
+              {if {$sub_menu[i].menuID} == 152}
+              <ul>
+              <li><a href="oneday.php?&amp;menuID={$nav_menu[sdMenu].menuID}">베이징 1일 투어</a></li>
+               <li><a href="twoday.php?&amp;menuID={$nav_menu[sdMenu].menuID}">베이징 1박2일</a></li>
+                <li><a href="threeday.php?&amp;menuID={$nav_menu[sdMenu].menuID}">베이징 2박3일</a></li>
+                <li><a href="fourday.php?&amp;menuID={$nav_menu[sdMenu].menuID}">베이징 3박4일</a></li>
+              </ul>
+              {/if}
+          </li>
+          
+          {/if}
+          
+          
+          
+            {/section}
+        </ul>
+      </li>
+        {/if} 
+      {/if}
+      {/section}
+    </ul>
+  </div>
+  <div class ="main_calendar"> 
+    <script type="text/javascript">
+            <!--
+            calendar();
+            //-->
+            </script> 
+  </div>
+  <!-- main_calendar -->
+  
+  <div class = "main_left2">
+    <p class = "left_btn"><a href="notice.php?type=ask"></a></p>
+  </div>
+  <!-- main_left2 -->
+  
+  <div class = "main_left_content"> <img src="{$t_dir}images/side-phone.jpg" width="199" height="400" alt="예약상담안내" /> </div>
+  <!-- main_left_content -->
+  <div class="main_left_content">
+    <h1></h1>
+    <table width="200" border="1">
+      <tr>
+        <td width="37"><img src="{$t_dir}images/msn.gif" width="28" height="28" alt="메신저" /></td>
+        <td width="59"><p class="left_content_email">xushihao120@hotmail.com</p></td>
+        <td width="82">&nbsp;</td>
+      </tr>
+      <tr>
+        <td><img src="{$t_dir}images/nate.gif" width="28" height="28" alt="네트온" /></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><img src="{$t_dir}images/kakao.gif" width="28" height="28" alt="카카오톡" /></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+  <div class = "main_left_content1"> 
+    <!-- ▧ 외환은행환율 -->
+    <frameset framespacing="0" border="0" frameborder="NO" rows="0,*">
+    <iframe scrolling="NO"  width="185" style="background-color:#f7f7f7; margin-left:7px;margin-top:8px;" height="163" vspace="0" hspace="0" marginwidth="0" border="0" frameborder="no" src="http://203.234.132.2/cgi-bin/fx1_1.cgi" > </iframe>
+    </frameset>
+  </div>
+  <!-- main_left_money -->
+  
+  <div class ="main_left_content2">
+    <h1></h1>
+    <table width="200" >
+      <tr>
+        <td>날짜</td>
+        <td>날씨</td>
+        <td>최저온도</td>
+        <td>최고온도</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+  <!-- main_left_weather -->
+  
+  <div class ="main_left_content3">
+
+  </div>
+  <!-- main_left_visitor --> 
+  
+</div>
+<!-- /.main-left--> 

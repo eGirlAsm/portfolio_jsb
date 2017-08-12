@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JSB투어 :: 북경여행,항공티켓,호텔예약</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+<!-- {$t_dir} -->
+<link href="{$t_dir}css/reset.css" rel="stylesheet" type="text/css" />
+<link href="{$t_dir}css/main_20130319.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$t_dir}js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="{$t_dir}js/ad_photo.js"></script>
+</head>
+<body>
+{include "header.html"}
+{include "sidebar.html"}
+
+<div class="search_main">
+<article class="fourm_item bor">
+<h3 class="fourm_title "><font color="#FF0000" style="font-size:14px;"><b>{$key}</b></font>&nbsp;에 대한 통합검색 결과입니다</h3>
+<ul class="s_item">
+{section name=l loop=$search}
+<li><a href="view.php?postid={$search[l].noticeId}">{$search[l].s_title}</a><span style="margin-left:10px;">{$search[l].s_Created}</span></li>
+
+{/section} 
+
+</ul>
+
+</article>
+
+
+</div>
+
+{include "footer.html"}
+</body>
+</html>
+

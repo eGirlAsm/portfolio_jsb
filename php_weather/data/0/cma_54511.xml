@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="gb2312"?>
+<weatherinfo><city>北京
+</city><data>		<date>          3月23日
+</date>		<weather>              晴转阴
+</weather>		<temperature>          13 ℃ /1℃
+</temperature>		<winddirect>南风3-4级转北风4-5级
+</winddirect>		<gif>2.gif,0.gif
+</gif></data><data>		<date>          3月24日
+</date>		<weather>              晴
+</weather>		<temperature>          11 ℃ /-1℃
+</temperature>		<winddirect>北风4-5级转微风
+</winddirect>		<gif>0.gif,0.gif
+</gif></data><data>		<date>		  3月25日
+</date>		<weather>              晴
+</weather>		<temperature>          11 ℃ /-1℃
+</temperature>		<winddirect>微风
+</winddirect>		<gif>0.gif,0.gif
+</gif></data></weatherinfo>

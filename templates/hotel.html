@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JSB투어 :: 북경여행,항공티켓,호텔예약</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+<!-- {$t_dir} -->
+<link href="{$t_dir}css/reset.css" rel="stylesheet" type="text/css" />
+<link href="{$t_dir}css/main_20130319.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$t_dir}js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="{$t_dir}js/ad_photo.js"></script>
+<script language="javascript" type="text/javascript">	
+
+
+
+$(function(){
+	$(".screenList dl:last").attr("style","border-bottom:0px");
+});
+function addSel(obj){
+	var checkValue = obj.innerHTML;
+	var scBox = $(obj).parent().parent().attr("id");
+	$(".barct").append("<a href='#' class='par' title='취소' id='curTitle' onclick='delSel(this)'>"+ checkValue +"</a>");
+	//$(obj).parent().remove();
+	delSel();
+	return false;
+}
+function delSel() {
+	$("#curTitle").remove();
+	return false;
+}
+</script>
+</head>
+<body>
+{include "header.html"}
+{include "sidebar.html"}
+<div class="rentalcar_main">
+
+  <section id="selection">
+    <div>
+    <dl class="secitem secitem_area clearfix"> 
+      <dt> 구역 ：</dt>
+      <dd><a href="#"  onClick="addSel(this)">전부(북경)</a><a href="#" onClick="addSel(this)">왕징(코리안타운)</a><a href="#" onClick="addSel(this)">국제전시장(삼원교)</a><a href="#" onClick="addSel(this)">CBD국제무역센터</a><a href="#" onClick="addSel(this)">올림픽경기장</a><a href="#" onClick="addSel(this)">공항-새전시장</a><a href="#" onClick="addSel(this)">북경대학-오도구</a><a href="#" onClick="addSel(this)">북경 전람관</a><a href="#" onClick="addSel(this)">천안문-왕부정</a><a href="#" onClick="addSel(this)">기타지역</a></dd>
+    </dl>
+    <div id="selected" class="selectResult clearfix" style="display: block;">
+      <div class="barct"> <span> 선택조건： </span><a class="par" id="curTitle" href="#" onclick="delSel(this)" title="取消"><em>
+      전부(북경)
+    </em></a> </div>
+    </div>
+    </div>
+  </section>
+  
+  {section name=l loop=$hotel_list}
+    <article class="rentalcar_item"><a class="pic" href="hotelinfo.php?hid={$hotel_list[l].hotelID}"><img width="140" height="98" alt="" src="uploads/{$hotel_list[l].imagepath}"></img></a>
+    <h2><a title="" href="hotelinfo.php?hid={$hotel_list[l].hotelID}">{$hotel_list[l].ko_name}&nbsp;{$hotel_list[l].en_name}</a></h2>
+    <div class="info"><span class="hotel_stars0{$hotel_list[l].stars}" title="4성 호텔"></span><span style="margin-left:20px;">지역 </span><span>{$hotel_list[l].address}</span><span>&nbsp;&nbsp;&nbsp;<a href="#">이용후기</a></span> </div>
+    <div class="note"> {$hotel_list[l].intro}</div>
+  </article>
+  {/section}
+  
+  
+</div>
+{include "footer.html"}
+</body>
+</html>

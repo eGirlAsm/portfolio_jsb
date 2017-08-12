@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JSB투어 :: 북경여행,항공티켓,호텔예약</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+<!-- {$t_dir} -->
+<link rel="stylesheet" type="text/css" href="easyui/themes/gray/easyui.css">
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="easyui/demo/demo.css">
+<link href="{$t_dir}css/niceforms-default.css" rel="stylesheet" type="text/css" />
+<link href="{$t_dir}css/reset.css" rel="stylesheet" type="text/css" />
+<link href="{$t_dir}css/main_20130319.css" rel="stylesheet" type="text/css" />
+<link href="{$t_dir}css/manhuaTip.1.0.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="{$t_dir}js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="{$t_dir}js/ad_photo.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="easyui/niceforms.js"></script>
+<!--[if IE]>
+<style>/*此样式用于radio/checkbox后面的label在ie下可能不正常*/
+.opt { padding-left: 8px; }
+</style>
+<![endif]-->
+<script>
+imagesPath = "{$t_dir}images/";// niceforms图片资源的路径
+</script> 
+
+</head>
+<body>
+{include "header.html"}
+{include "sidebar.html"}
+<div class="row">
+
+  <!--判断是否注册成功{if $login_status}--> 
+   <div class='msgbox_layer_wrap'><span id='mode_tips_v2' style='z-index: 10000;' class='msgbox_layer'><span class='gtl_ico_clear'></span>"<span class="gtl_ico_succ"></span>회원가입에 성공하였습니다！"<span class='gtl_end'></span></span></div>
+   
+   <div style="height:500px;"></div>
+
+  <!--结束{else}-->
+<div class="register-window">
+ <div class="demo-tip icon-tip" style="margin:30px;"></div>
+  <div style="font-size:12px;margin:30px;background:#FFFEE6;color:#8F5700;"><font color="#FF0000" >(*)</font>표시부분은 필수사항입니다.<br>-고객님의 소중한 신상 정보는 회원관리와 여행에 필요한 정보에만 사용됨니다. </div>
+ <div class="wrapper">
+
+        <form action="?page=3" method="post" name="registerform">
+        
+          <table class="qna_write" width="610" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <th width="132">아이디:</th>
+              <td width="478"><input name="username" type="text" id="username" datatype="z2-4" nullmsg="영문 + 수자！" errormsg="영문와수자로된조합된아이디"/>                
+                </td>
+            </tr>
+            <tr>
+              <th>패스워드:</th>
+              <td><input name="pw1" type="password" id="pw1" size="12" rule = "minLength" tip="" param="6"/>
+              6자 이상의 패스워드를 입력해 주세요              </td>
+            </tr>
+            <tr>
+              <th>패스워드 확인:</th>
+              <td><input name="pw2" type="password" id="pw2" size="12" rule="equal"  element="pw1" tip=" "/> 
+              패스워드 재확인</td>
+            </tr>
+            <tr>
+              <th width="132">이 름:</th>
+              <td width="478"><input name="truename" type="text" id="truename" size="8" rule = "minLength" tip="이름을 입력하세요" param="2"/>
+                ※ 이름과 이메일로 아이디 및 패스워드를 찾을수 있습니다. </td>
+            </tr>
+            <tr>
+              <th>이메일:</th>
+              <td><input type="text" name="email" id="email" rule="email" tip="정확한 이메일 주소를 입력하여 주세요."/></td>
+            </tr>
+            
+            <tr>
+              <th>핸드폰:</th>
+              <td><input type="text" name="mobile" id="mobile" /></td>
+            </tr>
+            <!--<tr>
+              <th>전화</th>
+              <td><input type="text" name="tel" id="tel"/></td>
+            </tr>-->
+
+
+            <tr>
+              <th>생년월일:</th>
+              <td><input name="birthday" type="text" id="birthday" size="12" rule="date" tip=""/>
+                 예: 1111년01월01일 1111-01-01</td>
+            </tr>
+            <tr>
+              <th>성 별:</th>
+              <td><input type="radio" name="sex" id="radio" value="남" />
+                남
+                <input type="radio" name="sex" id="radio2" value="여" />
+                여 </td>
+            </tr>
+            <!--<tr>
+              <th colspan="2">2765
+                <input name="textfield7" type="text" id="textfield7" size="4" />
+                왼쪽의 글자를 순서대로 입력하세요~!</th>
+            </tr>-->
+          </table>
+  </div>
+</div>
+</div>
+
+</div>
+
+<!--{/if}-->
+
+</div>
+{include "footer.html"}
+
+<script type="text/javascript" src="{$t_dir}js/Validform_v4.0_min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".registerform").Validform();
+		
+})
+</script>
+</body>
+</html>
+

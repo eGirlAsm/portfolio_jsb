@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JSB투어 :: 북경여행,항공티켓,호텔예약</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+<!-- {$t_dir} -->
+<link href="{$t_dir}css/reset.css" rel="stylesheet" type="text/css" />
+<link href="{$t_dir}css/main_20130319.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$t_dir}js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="{$t_dir}js/ad_photo.js"></script>
+<script>
+
+    $(document).ready(function() {        //DOM的onload事件处理函数        
+      $("#submit").click(function() {          //当按钮button被点击时的处理函数        
+        postdata ();     //button被点击时执行postdata函数         
+      });        
+    });       
+	
+    function postdata() {                        
+      $.ajax ({                                    
+        type: "POST",                            //设置ajax方法提交数 据的形式        
+        url: "comments.php",                    //把数 据提交到comments.php        
+        data: "postid="+"{$postid}"+"&comments="+$("#editor_id").val(),      
+        success: function(msg) {                  //提交成功后的回调   
+    if (msg="ok"){   
+      alert("回复 成功！")   
+      $("#commentlist").append('<li id="comment" class="comment even thread-even depth-1"> … </li>')   
+    }else{   
+      alert("回复失败！ ")   
+      }   
+        }        
+      });        
+    }    
+
+</script>
+</head>
+<body>
+{include "header.html"}
+{include "sidebar.html"}
+<div class="notice">
+  <div class="notice_title">
+    <h1>{$noticeTitle}</h1>
+    <p class="ext"> 등록일:{$noticeCreated}     글쓴이:{$noticeAuthor}        조회수:{$noticeHits} <a class="imp ico-copy" href="#share"></a><a class="imp ico-comm" href="#commenttop"></a></p>
+  </div>
+  <div class="notice_content"><p> * 한글이름:  {$ko_name}</p><p>* 영문이름:  {$en_name}</p><p>* 휴대폰:  {$phone}</p><p>* 이메일: {$email}
+</p><br><br><p>* 여행예정일: {$yudingri}</p></div>
+</div>
+<div class="respond">
+  <h3 class="base-tit">댓글</h3>
+  <div class="comt"> <a id="cancel-comment-reply-link" href="">取消评论</a>
+    <div class="comt-avatar"> <img alt="" src="{$t_dir}images/png.png" height="36" width="36"> </div>
+    <div class="comt-box">
+      <textarea class="comt-area" name="comment" id="editor_id" cols="100%" rows="7" tabindex="1" ></textarea>
+      <div class="comt-ctrl">
+        <input class="comt-submit" name="submit" id="submit" tabindex="5" value="덧글입력" type="submit"  style="margin-right:5px;">
+      </div>
+    </div>
+  </div>
+</div>
+<div id="postcomments">
+  <h3 id="comments" class="base-tit"> … </h3>
+  <ol id="commentlist" class="commentlist">
+  {section name=i loop=$comment_info}
+    <li id="comment" class="comment even thread-even depth-1">
+      <div class="c-floor"> <a href="#comment-16274"> #{$comment_info[i].comment_index} </a> </div>
+      <div class="c-avatar"> <img width="36" height="36" src="{$t_dir}images/png.png" alt=""></img></div>
+      <div class="c-main">
+        <p> {$comment_info[i].content}</p>
+        <div class="c-meta"> <span class="c-author"> {$comment_info[i].author} </span> {$comment_info[i].created} <a class="comment-reply-link" href="#">답글</a></div>
+      </div>
+    </li>
+ {/section}
+  </ol>
+<div class="page-num">
+{$pagenav}
+</div>
+</div>
+{include "footer.html"}
+</body>
+</html>

@@ -1,0 +1,303 @@
+<link href="css/reset.css" rel="stylesheet" type="text/css" />
+<link href="css/main_20130319.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/ad_photo.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	$("img[original]").lazyload({ placeholder:"images/color3.gif" });
+	
+	$('.demo1').Tabs();
+	$('.demo4').Tabs({
+		event:'click'
+	});
+	$('.demo3').Tabs({
+		timeout:300
+	});
+	$('.demo6').Tabs({
+		auto:3000
+	});
+	$('.demo5').Tabs({
+		event:'click',
+		callback:lazyloadForPart
+	});
+	//部分区域图片延迟加载
+	function lazyloadForPart(container) {
+		container.find('img').each(function () {
+			var original = $(this).attr("original");
+			if (original) {
+				$(this).attr('src', original).removeAttr('original');
+			}
+		});
+	}
+});	
+</script>
+
+<div class="div_content">
+  <div class = "main_center">
+    <div id="ifocus">
+      <div id="ifocus_pic">
+        <div id="ifocus_piclist" style="left:0; top:0;">
+          <ul>
+            <li><a href="#" target="_blank"><img src="{$t_dir}images/01.jpg" alt="jsb투어" /></a></li>
+            <li><a href="#" target="_blank"><img src="{$t_dir}images/02.jpg" alt="jsb투어" /></a></li>
+            <li><a href="#" target="_blank"><img src="{$t_dir}images/03.jpg" alt="jsb투어" /></a></li>
+            <li><a href="#" target="_blank"><img src="{$t_dir}images/04.jpg" alt="jsb투어" /></a></li>
+          </ul>
+        </div>
+        <div id="ifocus_opdiv"></div>
+        <div id="ifocus_tx">
+          <ul>
+            <li class="current">천 안 문</li>
+            <li class="normal">골  프</li>
+            <li class="normal">금 면 왕 조</li>
+            <li class="normal">북경 만리장성 d4</li>
+          </ul>
+        </div>
+      </div>
+      <div id="ifocus_btn">
+        <ul>
+          <li class="current"><img src="{$t_dir}images/btn_01.jpg" alt="" /></li>
+          <li class="normal"><img src="{$t_dir}images/btn_02.jpg" alt="" /></li>
+          <li class="normal"><img src="{$t_dir}images/btn_03.jpg" alt="" /></li>
+          <li class="normal"><img src="{$t_dir}images/btn_04.jpg" alt="" /></li>
+        </ul>
+      </div>
+    </div>
+    <!-- ifocus -->
+    <div class="main_center_news">
+      <ul id="test1_li_now_">
+        <li class="now"><a href ="#" >공지사항</a></li>
+        <li><a href ="#" >여행지식</a></li>
+        <li><a href ="#" >질문답변</a></li>
+        <li><a href ="#" >여행후기</a></li>
+        <li><a href ="#" >토론방</a></li>
+      </ul>
+    </div>
+    <div>
+      <div id="test1_1" class="tablist block"> <span>
+        <ul>
+          {section name=news $notice max=8}
+          {if $notice[news].noticeType == 1}
+          <li>
+            <div class="cb_r1time">{$notice[news].noticeTime}</div>
+            <div class="cb_r1t"><a href="view.php?postid={$notice[news].noticeId}">{$notice[news].noticeTitle}</a></div>
+            <div class="cb_r1n"> {$notice[news].noticeAuthor} </div>
+          </li>
+          {/if}
+          {/section}
+        </ul>
+        </span> </div>
+      <div id="test1_2" class="tablist"> <span>
+        <ul>
+          {section name=know $notice max=8}
+          
+          {if $notice[know].noticeType == 2}
+          <li>
+            <div class="cb_r1time">{$notice[know].noticeTime}</div>
+            <div class="cb_r1t"><a href="view.php?postid={$notice[know].noticeId}">{$notice[know].noticeTitle}</a></div>
+            <div class="cb_r1n"> {$notice[know].noticeAuthor} </div>
+          </li>
+          {/if}
+          {/section}
+        </ul>
+        </span> </div>
+      <div id="test1_3" class="tablist"> <span>
+        <ul>
+          {section name=ask $notice max=8}
+          {if $notice[ask].noticeType == 3}
+          <li>
+            <div class="cb_r1time">{$notice[ask].noticeTime}</div>
+            <div class="cb_r1t"><a href="view.php?postid={$notice[ask].noticeId}">{$notice[ask].noticeTitle}</a></div>
+            <div class="cb_r1n"> {$notice[ask].noticeAuthor} </div>
+          </li>
+          {/if}
+          {/section}
+        </ul>
+        </span> </div>
+      <div id="test1_4" class="tablist"> <span>
+        <ul>
+          {section name=report $notice max=8}
+          {if $notice[report].noticeType == 4}
+          <li>
+            <div class="cb_r1time">{$notice[report].noticeTime}</div>
+            <div class="cb_r1t"><a href="view.php?postid={$notice[report].noticeId}">{$notice[report].noticeTitle}</a></div>
+            <div class="cb_r1n"> {$notice[report].noticeAuthor} </div>
+          </li>
+          {/if}
+          {/section}
+        </ul>
+        </span> </div>
+      <div id="test1_5" class="tablist"> <span>
+        <ul>
+          {section name=talk $notice}
+          {if $notice[talk].noticeType == 5}
+          <li>
+            <div class="cb_r1time">{$notice[talk].noticeTime}</div>
+            <div class="cb_r1t"><a href="view.php?postid={$notice[talk].noticeId}">{$notice[talk].noticeTitle}</a></div>
+            <div class="cb_r1n"> {$notice[talk].noticeAuthor} </div>
+          </li>
+          {/if}
+          {/section}
+        </ul>
+        </span> </div>
+    </div>
+    <div class="main_center_show_1">
+      <div class="box demo4">
+        <ul class="tab_menu">
+          <li class="current"><a href="#s7">여행일정</a></li>
+          <li><a href="#s0">볼 거 리</a></li>
+          <li><a href="#s1">먹 거 리</a></li>
+          <li><a href="#s2">마 사 지</a></li>
+          <li><a href="#s3">온  천</a></li>
+          <li><a href="#s4">사 우 나</a></li>
+          <li><a href="#s5">노 래 방</a></li>
+          <li><a href="#s6">스 키 장</a></li>
+        </ul>
+        <div class="tab_box">
+          <div>
+            <div class="BestHit">
+              <p class="BestThumb"><span class="BestIcon">TourBest</span><a href="threeday.php?&menuID=101"><img src="{$t_dir}images/3dayhomepage.jpg" alt="베이징 2박3일 최고의여행!" height="147" width="250"></a></p>
+              <span class="IcoSet"></span>
+              <p class="ProductName"><a href="threeday.php?&menuID=101"><strong>베이징2박3일자유여행 (노쇼핑)</strong><span>2박3일 거이다 맛보는 중국수도!<br>북경/베이징을 여행으로 선택했을때 몇일이면 좋을가? <br>바로 2박3일!</span></a></p>
+              <p class="price"><strong>입장권 630원~</strong></p>
+            </div>
+            <ul class="ProductList">
+              <li>
+                <p class="thumbImg"><a href="oneday.php?menuID=101"><img src="{$t_dir}images/xinai_small.jpg" alt="[1일투어] 베이징시내관광 (노쇼핑)" height="61" width="81"></a></p>
+                <p class="ListSort" ><a href="oneday.php?menuID=101"><strong style="font-weight:bold;">[1일투어] 베이징시내관광 (노쇼핑)</strong><span> 이화원  인력거투어-코스  천안문광장  자금성 경산공원 금면왕조-A좌석</span><span class="price"><strong>499,000원~</strong></span></a></p>
+              </li>
+              <li>
+                <p class="thumbImg"><a href="oneday.php?day_tour=jiaowai&amp;menuID=101"><img width="81" height="61" alt=" [1일투어] 베이징교외관광 (노쇼핑)" src="{$t_dir}images/jiaowai_small.jpg"></img></a></p>
+                <p class="ListSort"><a href="oneday.php?day_tour=jiaowai&amp;menuID=101"><strong style="font-weight:bold;"> [1일투어] 베이징교외관광 (노쇼핑)</strong><span> 피에르롯티찻집에서 여유로운 차한잔, 특식 3회 이상 제공, 특급2박 이상 호텔숙박의 편안한 일정입니다. </span><span class="price"><strong> 1,590,000원~ </strong></span></a></p>
+              </li>
+              <li>
+                <p class="thumbImg"><a href="oneday.php?day_tour=ziyou&amp;menuID=101"><img src="{$t_dir}images/ziyou_small.jpg" alt="[1일투어] 베이징자유투어 (노쇼핑)" height="61" width="81"></a></p>
+                <p class="ListSort"><a href="oneday.php?day_tour=ziyou&amp;menuID=101"><strong style="font-weight:bold;">[1일투어] 베이징자유투어 (노쇼핑)</strong><span>일본 온천여행의 진수를 맛볼 수 있는 여행으로, 지옥온천을 순례하며 온천의 나라 일본을 즐기실 수 있습니다.</span><span class="price"><strong>549,000원~</strong></span></a></p>
+              </li>
+              <li>
+                <p class="thumbImg"><a href="oneday.php?day_tour=yejian&amp;menuID=101"><img src="{$t_dir}images/yejian_small.jpg" alt="[1일투어] 베이징야간투어 (노쇼핑)" height="61" width="81"></a></p>
+                <p class="ListSort"><a href="oneday.php?day_tour=yejian&amp;menuID=101"><strong style="font-weight:bold;">[1일투어] 베이징야간투어 (노쇼핑)</strong><span>괌 PIC 골드상품으로 석식 1회가 불포함된 상품입니다. 룸 업그레이드 반값, 선셋 BBQ, 지바나 스파 할인의 특전도 누리실 ...</span><span class="price"><strong>779,000원~</strong></span></a></p>
+              </li>
+            </ul>
+          </div>
+       
+          <div class="hide">
+  ㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹ
+          </div>
+          <div class="hide">
+            
+ ㅁㄴㅇㄻㄴㅇㄻㄴㅇㄹ
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main_center_show_2">
+      <div class="center_show_2_menu">
+        <ul>
+          <li id="first_nobold" class ="on"><a href ="#s0">북경정보</a></li>
+          <li><a href ="#s1">정  치</a></li>
+          <li><a href ="#s2">역  사</a></li>
+          <li><a href ="#s3">문  화</a></li>
+          <li><a href ="#s4">예  술</a></li>
+          <li><a href ="#s5">지  도</a></li>
+          <li><a href ="#s6">교  통</a></li>
+          <li><a href ="#s7">학  교</a></li>
+          <li><a href ="#s8">은  행</a></li>
+          <li><a href ="#s9">병  원</a></li>
+          <li><a href ="#s10">박 물 관</a></li>
+          <li><a href ="#s11">쇼핑센터</a></li>
+          <li><a href ="#s12"> 귀국선물</a></li>
+        </ul>
+       
+      </div>
+      
+       <div class="opcast_article">
+       <h4>
+       <a href="#">
+      북경 대표건물 정보,3000년 역사를 지닌 대국!
+    </a></h4>
+    <ul class="th_lst">
+    <li><a class="th_a" target="_blank" href="#"><img width="179" height="100" title="일상에서도 화보 찍네" alt="일상에서도 화보 찍네" src="{$t_dir}images/birdbj.jpg"></img><span class="th_tit">북경 올림픽경기장</span></a>
+    </li>
+    
+    <li><a class="th_a" target="_blank" href="#"><img width="179" height="100" title="사심이 가득한데?" alt="사심이 가득한데?" src="{$t_dir}images/gugong.jpg"></img><span class="th_tit">북경 고궁</span></a>
+    </li>
+    
+    <li><a class="th_a" target="_blank" href="#"><img width="179" height="100" title="사심이 가득한데?" alt="사심이 가득한데?" src="{$t_dir}images/tiananmen.jpg"></img><span class="th_tit">북경 천안문광장</span></a></li>
+    
+    <li><a class="th_a" target="_blank" href="#"><img width="179" height="100" title="사심이 가득한데?" alt="사심이 가득한데?" src="{$t_dir}images/changcheng.jpg"></img><span class="th_tit">만리장성</span></a></li>
+    
+   
+    </ul>
+   	    </div>
+      
+    </div>
+  </div>
+  <!-- ./main-center-->
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".center_show_2_menu a").click(function(){
+  $(".center_show_2_menu li").removeClass("on");
+  $(this).parent(this).addClass("on");
+  });
+});
+</script>
+
+  
+  <div class="main_right">
+    <div class="main_air">
+      <div id=con>
+        <ul id=tags>
+          <li class=selectTag><a onClick="selectTag('tagContent0',this)" href="javascript:void(0)">실시간 항공</a> </li>
+          <li><a onClick="selectTag('tagContent1',this)" href="javascript:void(0)">국제선</a> </li>
+          <li><a onClick="selectTag('tagContent2',this)" href="javascript:void(0)">특가항공</a> </li>
+        </ul>
+        <div id=tagContent>
+          <div class="tagContent  selectTag" id=tagContent0>
+            
+          </div>
+          <div class=tagContent id=tagContent1>국제선항공권은 상담문의 하시기 바랍니다</div>
+          <div class=tagContent id=tagContent2>국제선항공권은 상담문의 하시기 바랍니다</div>
+        </div>
+      </div>
+    </div>
+    <div class="main_right_notice">
+      <div class="payuserlist">
+  <h2><div  class = "div_more"><a href="payuser.php?">더보기 +</a></div></h2>
+        <ul>
+         {section name=l loop=$paynotice max=8 }
+        
+          <li class="top"> <em>{$paynotice[l].noticeCreated}</em>
+            <p><a href="payuserview.php?postid={$paynotice[l].noticeId}" target="_blank">{$paynotice[l].noticeTitle}</a></p>
+            <span class="num">{$paynotice[l].noticeAuthor}</span> </li>
+ {/section}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- 	 main_right	--> 
+  
+</div>
+<!-- div_content --> 
+
+<script>
+			var today_recom={
+					step:42,
+					totalcount:6,
+					a_pre:"",
+					a_next:"",
+					ul:'ul_recom'
+				};
+	
+				var indexrecom={					
+					bigpic:"switchbigpic",	//大图div之id通用部分	
+					step:223,
+					smallpic:"switchsmapic",//小图之id通用部分		
+					selectstyle:"curra",	//小图被选中之后的css
+					pictxt:"",	//配套图片文字
+					totalcount:6,					//图片数量	
+					autotimeintval:6000,
+					objname:"indexrecom"	//对象名称		
+				} ;	
+			</script>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JSB투어 :: 북경여행,항공티켓,호텔예약</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+<!-- {$t_dir} -->
+<link href="{$t_dir}css/reset.css" rel="stylesheet" type="text/css" />
+<link href="{$t_dir}css/main_20130319.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$t_dir}js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="{$t_dir}js/ad_photo.js"></script>
+<script type="text/javascript" src="{$t_dir}js/colorpick.js"></script>
+	<link rel="stylesheet" href="{$t_dir}js/kalendae.css" type="text/css" charset="utf-8">
+<!-- <script src="src/moment.js" type="text/javascript" charset="utf-8"></script>
+	<script src="build/kalendae.js" type="text/javascript" charset="utf-8"></script> -->
+	<script src="{$t_dir}js/kalendae.standalone.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css" media="screen">
+		.kalendae .k-days span.closed {
+			background:red;
+		}
+	</style>
+</head>
+<body>
+{include "header.html"}
+{include "sidebar.html"}
+<div id="colorpanel" style="position:absolute;display:none;width:253px;height:177px;"></div>
+<div class="appointment_main">
+
+  <div class="exlist">
+    <div class="exlist_title"></div>
+       <div id="title"><legend>맞춤일정표</legend></div>
+                            <fieldset>
+                  <div class="rowInput">
+					<font color="#FF0000">*</font> 표시부분은 필수사항입니다. <a id="color_picker" href="#color" style="float:right;display:none;"><div class="colorpick">배경색 선택</div></a>
+               </div>
+               
+           </fieldset>
+       <form method="post" action="">
+           <fieldset>
+           <legend>고객정보</legend>
+                   <div class="rowInput">
+                   <label><font color="#FF0000">*</font>한글이름:</label>
+                   <input style="width:100px" class="txt" type="text" name="ko_name" />
+                   <label><font color="#FF0000">*</font>영문이름:</label>
+                <input style="width:100px" class="txt" type="text" name="en_name" />
+                   </div>
+                   <div class="rowInput">
+                   <label><font color="#FF0000">*</font>연락처(전화번호):</label><input class="txt" style="width:200px" type="text" name="phone"/>
+                   </div>
+                   <div class="rowInput">
+                   <label><font color="#FF0000">*</font>이메일:</label><input class="txt" style="width:300px"  type="text" name="email" />
+                   </div>
+           </fieldset>
+           <fieldset>
+           <legend>기본정보</legend>
+                   <div class="rowInput">
+                   <label><font color="#FF0000">*</font>여행예정일:</label>
+                   <input style="width:180px" id="input1" class="txt" type="text" name="start_day"/>
+                   <script type="text/javascript" charset="utf-8">
+		var k4 = new Kalendae.Input('input1', {
+			months:2
+		});</script>
+        </div> <div class="rowInput">
+                   <p>
+                     <label><input type="radio" name="day" value="1일"/>1일</label>
+                     <label><input type="radio" name="day" value="1박2일"/>1박2일</label>
+                     <label><input type="radio" name="day" value="2박3일"/>2박3일</label>
+                     <label><input type="radio" name="day" value="3박4일"/>3박4일</label>
+                     <label><input type="radio" name="day" value="4박5일"/>4박5일</label>
+                     <label><input type="radio" name="day" value="5박6일"/>5박6일</label>
+                     <label><input type="radio" name="day" value="한달"/>한달</label>
+                   </p>
+              
+                   </div>
+                   <hr width="500px;" color="#CCCC00" >
+                   <div class="rowInput">
+                   <label><font color="#FF0000">*</font>여행인원:</label><label>어른:        <select name="daren_count">
+                   <option>0명</option>
+                   <option>1명</option>
+                   <option>2명</option>
+                   <option>3명</option>
+                   <option>4명이상</option>
+                   </select></label>
+                   <label>아동:        <select name="xiaohai_count">
+                   <option>0명</option>
+                   <option>1명</option>
+                   <option>2명</option>
+                   <option>3명</option>
+                   <option>4명이상</option>
+                   </select></label>
+                   <label>유아:        <select name="yinger_count">
+                   <option>0명</option>
+                   <option>1명</option>
+                   <option>2명</option>
+                   <option>3명</option>
+                   <option>4명이상</option>
+                   </select></label>
+                   </div>
+                   <hr width="500px;" color="#CCCC00" >
+                   <div class="rowInput">
+                   <label><font color="#FF0000">*</font>여행타입:</label>  <p>
+                     <label><input type="radio" name="type" value="单选"/>가족여행</label>
+                     <label><input type="radio" name="type" value="单选"/>친목회</label>
+                     <label><input type="radio" name="type" value="单选"/>비지니스여행</label>
+                     <label><input type="radio" name="type" value="单选"/>전시회</label>
+                     
+                     <label><input type="radio" name="type" value="单选"/>골프여행</label>
+                     <br>
+                     <label><input type="radio" name="type" value="单选"/>일반여행</label>
+                     <label><input type="radio" name="type" value="单选"/>기타</label>
+                   </p>
+                   </div>
+                   <hr width="500px;" color="#CCCC00" >
+                      <div class="rowInput">
+                   <label><font color="#FF0000">*</font>히망여행지:</label><select name="want_place">
+                   <option>북경</option>
+                   <option>상해</option>
+                   <option>광주</option>
+                   <option>청도</option>
+                   </select>
+                   </div>
+                          <div class="rowInput">
+                   <label>1인당 총
+여행 경비:</label><input class="txt" style="width:100px"  type="text" name="money" />
+<label>만원   예) 150만원 또는 150~200만원 (현지 체류비 제외 1인당 예상경비를 적어주세요)</label>
+                   </div>
+                   
+           </fieldset>
+           <fieldset>
+           <legend>항공</legend>
+                   <div class="rowInput">
+                    <label>가는일자:</label> <input style="width:100px" id="input3" class="txt" type="text"  name="start_air_day"/>
+                   <script type="text/javascript" charset="utf-8">
+		var k4 = new Kalendae.Input('input3', {
+			months:2
+		});</script>
+                   <label>출발도시:        <select name="start_air_place">
+                   <option>서울</option>
+                   <option>김포</option>
+                   <option>제주도</option>
+                   <option>미국</option>
+                   </select></label>
+                   <label>도착도시:        <select name="arrive_air_place">
+                   <option>북경</option>
+                   <option>광주</option>
+                   <option>상해</option>
+                   <option>청도</option>
+                   </select></label>
+                   </div>
+                    <div class="rowInput">
+              <label>항공편:        <select name="air_company">
+                   <option>아시아항공</option>
+                   <option>대한항공</option>
+                   <option>중국남방항공</option>
+                   <option>중국해남항공</option>
+                   <option>중국동방항공</option>
+                   </select></label>
+                   </div>
+                           <div class="rowInput">
+                            <label>오는일자:</label> <input style="width:100px" id="input4" class="txt" type="text" name="back_air_day"/>
+                   <script type="text/javascript" charset="utf-8">
+		var k4 = new Kalendae.Input('input4', {
+			months:2
+		});</script>
+                   <label>출발도시:        <select name="back_air_start_place">
+          
+                     <option>북경</option>
+                   <option>광주</option>
+                   <option>상해</option>
+                   <option>청도</option>
+                   </select></label>
+                   <label>도착도시:        <select name="back_air_arrive_palce">
+                  <option>서울</option>
+                   <option>김포</option>
+                   <option>제주도</option>
+                   <option>미국</option>
+                   </select></label></div>
+                    <div class="rowInput">
+             <label>항공편:        <select name="back_air_company">
+                   <option>아시아항공</option>
+                   <option>대한항공</option>
+                   <option>중국남방항공</option>
+                   <option>중국해남항공</option>
+                   <option>중국동방항공</option>
+                   </select></label>
+                   </div>
+           </fieldset>
+           
+           
+            <fieldset>
+           <legend>숙박</legend>
+                  <div class="rowInput">
+               <label>호텔:</label>
+                   <p>
+                     <label><input type="radio" name="45xing" value="单选"/> 호텔 (4~5성급)</label>
+                     <label><input type="radio" name="34xing" value="单选"/>호텔 (3~4성급)</label>
+                     <label><input type="radio" name="23xing" value="单选"/>호텔 (2~3성급)</label>
+                     <label><input type="radio" name="putong" value="单选"/>민박/호스텔</label>
+                     <label><input type="radio" name="buzhu" value="单选"/>숙소제외</label>
+                   </p>
+               </div>
+           </fieldset>
+           
+                   <fieldset>
+           <legend>렌터카</legend>
+                  <div class="rowInput">
+               <label>챠량:</label>
+                   <p>
+                     <label><input type="radio" name="pay" value="单选"/> 5인석 일반차
+</label>
+                     <label><input type="radio" name="pay" value="单选"/> 5인석 현대차</label>
+                     <label><input type="radio" name="5renxing" value="单选"/> 5인석 소아 k5</label>
+                     <label><input type="radio" name="benchi" value="单选"/>벤츠
+</label>
+                   </p>
+               </div>
+           </fieldset>
+           
+                       <fieldset>
+           <legend>입장권</legend>
+                  <div class="rowInput">
+               <label>관광지정보:</label>
+                   <p>
+                     <label><input type="radio" name="wanlichangcheng" value="单选"/> 만리장성
+</label>
+                     <label><input type="radio" name="yihuayuan" value="单选"/> 이화원</label>
+                     <label><input type="radio" name="jingshangongyuan" value="单选"/>  경산공원
+</label>
+                     <label><input type="radio" name="wangfujing" value="单选"/>왕부정
+</label>
+                   </p>
+               </div>
+           </fieldset>
+           
+                          <fieldset>
+           <legend>식사</legend>
+                  <div class="rowInput">
+               <label>음식:</label>
+                   <p>
+                     <label><input type="radio" name="hanshi" value="单选"/> 한식
+</label>
+                     <label><input type="radio" name="zhongshi" value="单选"/> 중식</label>
+                     <label><input type="radio" name="sichuanmalatang" value="单选"/>  사천마라탕
+</label>
+                     <label><input type="radio" name="beijingkaoya" value="单选"/>북경오리구이
+</label>
+                   </p>
+               </div>
+           </fieldset>
+                     <fieldset>
+           <legend>가이드/통역 </legend>
+                  <div class="rowInput">
+               <label>가이드/통역:</label>
+                   <p>
+                     <label><input type="radio" name="guid" value="单选"/> 가이드
+</label>
+                     <label><input type="radio" name="trans" value="单选"/> 통역</label>
+   
+                   </p>
+               </div>
+           </fieldset>
+            <fieldset>
+           <legend>맞춤요청사항  </legend>
+                  <div class="rowInput">
+<textarea name="" cols="" rows="" style="width:570px;height:90px;"></textarea>
+               </div>
+           </fieldset>
+           <div style="margin-bottom:20px;width:100%;text-align:center;"><input type="image" src="{$t_dir}images/mancum.png" /> </div>
+        </form>
+       
+</div>
+  
+</div>
+
+{include "footer.html"}
+</body>
+</html>

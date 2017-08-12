@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JSB투어 :: 북경여행,항공티켓,호텔예약</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+<!-- {$t_dir} -->
+<link href="{$t_dir}css/reset.css" rel="stylesheet" type="text/css" />
+<link href="{$t_dir}css/main_20130319.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$t_dir}js/jquery-1.7.2.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="{$t_dir}js/blocksit.min.js"></script>
+<script type="text/javascript" src="{$t_dir}js/jquery.colorbox.js"></script>
+<script type="text/javascript" src="{$t_dir}js/ad_photo.js"></script>
+<script type="text/javascript" src="{$t_dir}js/tourplace.js"></script>
+
+
+</head>
+<body>
+{include "header.html"}
+{include "sidebar.html"}
+<div class="tourplace_main">
+ <section id="wrapper">
+  <div id="container">
+  
+  
+   {section name=l loop=$tour_list}
+    <div class="grid">
+      <div class="imgholder"> <a class="group2" rel ="" href="uploads/{$tour_list[l].imagepath}" title="{$tour_list[l].title}"><img src="uploads/{$tour_list[l].imagepath}" /> </a></div>
+      <strong><a href="#">{$tour_list[l].title}</a></strong>
+      <p>{$tour_list[l].area}</p>
+      <div class="meta">오픈시간 {$tour_list[l].time} 가격 {$tour_list[l].price}</div>
+    </div>
+    
+     {/section}
+      
+    <!---->
+  </div>
+</section>
+</div>
+{include "footer.html"}
+</body>
+</html>

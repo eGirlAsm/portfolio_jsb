@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JSB투어 :: 북경여행,항공티켓,호텔예약</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<script src="JS/calendar5.js" type="text/javascript"></script>
+<style type="text/css">
+
+
+html, body{
+height:100%;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p , form, fieldset, legend, input, button, textarea, th, td {
+	margin:0;
+	padding:0;
+}
+
+/* 统一超链接显示方式 */
+a { color:#0287CA; text-decoration:none; }
+a:hover{color:#0b0; text-decoration: underline; }
+/* 设置统一字体 */
+body {
+	font-family: "돋음",Dotum,"굴림",Gulim,Arial,AppleGothic,"애플고딕",sans-serif;
+	font-size: 11px;
+	line-height: 1.5em;
+	color: #808080;
+	}
+
+li {list-style:none; }
+
+.row{width: 1000px; margin: 0 auto; }
+
+#container {
+   width: 100%;
+   margin-left:auto;
+   margin-right:auto;
+   min-height:100%; /*使内容高度和body一样*/
+   margin-bottom:-80px;/*向上缩减80像素，不至于footer超出屏幕可视范围*/
+}
+
+
+
+/* top-menu */
+.top-menu-row{
+    height: 34px;
+    background: #252525;
+    line-height: 34px;
+    color: #aaa;
+}
+.top-menu{
+    height: 34px;
+    overflow: hidden;
+	float:right;
+}
+.top-menu li{
+	display:inline;
+}
+.top-menu a{
+    color: #aaa;
+}
+.top-menu a:hover{
+    color: #eee;
+}
+
+
+.header{
+    height: 106px;
+}
+.logo{
+    width: 218px;
+    height: 70px;
+    background: url(images/logo.png) no-repeat;
+    margin-top: 20px;
+	float:left;
+}
+.logo a{
+    display: block;
+    height: 70px;
+    text-indent: -9999em;
+}
+
+
+.mian-nav{
+    height: 36px;
+    background:#61b509;
+    width: 1001px;
+    margin-left: -1px;
+}
+.mian-nav li{
+    float: left;
+    height: 36px;
+}
+.mian-nav a{
+    display: block;
+    width: 75px;
+    height: 36px;
+    line-height: 36px;
+    border-right: 1px solid #02b202;
+    border-left: 1px solid #75ca19;
+    text-align: center;
+
+    color: #fff;
+    font-weight: bold;
+}
+.mian-nav .current{
+    background: #02b202;
+}
+.mian-nav a:hover{
+    color: #fff;
+    background: #02b202;
+    text-decoration: none;
+}
+
+/* 搜索栏 */
+.search-form{
+    background: #fff;
+    float: left;
+    width: 475px;
+    margin-top: 38px;
+}
+.search-form form{
+    display: block;
+    height: 30px;
+}
+.search-wrod{
+    width: 380px;
+    padding: 4px 5px;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    border: 1px solid #ccc;
+}
+.search-wrod-focus{
+    border: 1px solid #58C100;
+}
+
+.search-btn{
+    float: left;
+    width:78px;
+    height: 30px;
+    font-weight: bold;
+    color: #fff;
+    background: #58c100;
+    border:0;
+}
+.search-keys{
+    margin-top: 5px;
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+}
+.search-keys a{
+    margin-right: 5px;
+    white-space: nowrap;
+}
+.search-test{
+    width: 295px;
+    float: right;
+    line-height: 24px;
+    overflow: hidden;
+    margin-top: 12px;
+    height:80px;
+    overflow: hidden;
+}
+
+
+
+.main_left {
+	float:left;
+	border-bottom: 1px #DEDEDE solid;
+	border-top: 1px #DEDEDE solid;
+}
+
+.main_left_login{
+	float:left;
+	border-left:1px #DEDEDE solid;
+	border-right:1px #DEDEDE solid;
+	border-bottom: 1px #DEDEDE solid;
+	border-top: 1px #DEDEDE solid;
+	margin-top:10px;
+}
+
+.main_left2{
+	margin-top:5px;
+	float: left;
+	clear: left;
+	}
+
+.main_center{
+	float:left;
+}
+
+.main_right{
+	float:left;
+	width:250px;
+	margin-top: 10px;
+	border-left:1px #DEDEDE solid;
+	border-right:1px #DEDEDE solid;
+	border-bottom: 1px #DEDEDE solid;
+	border-top: 1px #DEDEDE solid;
+}
+
+
+.main {
+	padding-bottom:1400px; /*这个是关键，处理页面高度超出屏幕可视范围时，控制内容和底部高度之间距离*/
+}
+
+/* footer */
+.footer{
+    width: 1000px;
+    margin: 10px auto 0;
+    text-align: center;
+    padding: 10px 0 10px;
+    color: #666;
+    line-height: 24px;
+    border-top: 1px solid #eee;
+}
+
+.footer li{
+		display:inline;
+}
+
+.footer .site-link{
+    color: #ccc;
+}
+
+/* tab 切换 */
+.mod-tab{
+    height: 29px;
+    border-bottom: 1px solid #ddd;
+    padding-left: 5px;
+}
+.mod-tab li{
+    float: left;
+    height: 28px;
+    margin-right: 5px;
+    background: #f8f8f8;
+    cursor: pointer;
+    line-height: 28px;
+    padding: 0 8px;
+    border-style: solid;
+    border-color: #ddd;
+    border-width: 1px 1px 0;
+}
+.mod-tab .current{
+    position: relative;
+    margin-bottom: -1px;
+    background: #fff;
+    height: 29px;
+    font-weight: bold;
+}
+
+/* 文字列表 */
+
+.txt-list li{
+    vertical-align: middle;
+    background: url(../images/xzb_main.png) no-repeat -198px 12px;
+    padding-left: 8px;
+    height: 26px;
+    line-height: 26px;
+    overflow: hidden;
+}
+
+/* css rollover
+================================== */
+
+.left_btn a:link,.left_btn a:visited {
+  display: block;
+  width: 199px;
+  height: 40px;
+  line-height: 40px;
+  color: #000;
+  text-decoration: none;
+  background: #94B8E9 url(images/button.gif) no-repeat left top;
+  text-indent: 50px;
+  text-align:center;
+  margin-bottom:3px;
+}
+
+.left_btn a:hover {
+ background: #369 url(images/button-over.gif) no-repeat left top;
+ color: #000;
+}
+
+.imp{color: #0b0; }
+.h2{
+	font-size:16px;
+	text-align: center;
+}
+
+.main_air {
+	width:527px;
+	margin:10px 0 0 10px;
+}
+
+.main_air_left{
+	border-left:1px #DEDEDE solid;
+	border-right:1px #DEDEDE solid;
+	border-bottom: 1px #DEDEDE solid;
+	border-top: 1px #DEDEDE solid;
+	height:360px;
+}
+
+.main_calendar{
+	clear:both;
+	float:left;
+	width:198px;
+	border-left:1px #DEDEDE solid;
+	border-right:1px #DEDEDE solid;
+	border-bottom: 1px #DEDEDE solid;
+	border-top: 1px #DEDEDE solid;
+}
+
+.main_left_content{
+	clear:both;
+	float:left;
+	margin-top:5px;
+	border-left:1px #DEDEDE solid;
+	border-right:1px #DEDEDE solid;
+	border-bottom: 1px #DEDEDE solid;
+	border-top: 1px #DEDEDE solid;
+}
+
+.border {
+	margin-top:5px;
+	border-left:1px #DEDEDE solid;
+	border-right:1px #DEDEDE solid;
+	border-bottom: 1px #DEDEDE solid;
+	border-top: 1px #DEDEDE solid;
+}
+
+.main_left_content h1{
+	background-color:#d6d6d6;
+	text-align:center;
+	width:198px;
+}
+
+.main_left_money {
+	float:left;
+	clear:both;
+	width:198px;
+}
+
+.main_left_money h1{
+	background-color:#d6d6d6;
+	text-align:center;
+	width:198px;
+}
+
+.main_left_weather {
+	float:left;
+	clear:both;
+	width:198px;
+}
+
+.main_left_weather h1{
+	background-color:#d6d6d6;
+	text-align:center;
+	width:198px;
+}
+
+.main_left_visitor {
+	float:left;
+	clear:both;
+	width:198px;
+}
+
+.main_left_visitor h1{
+	background-color:#d6d6d6;
+	text-align:center;
+	width:198px;
+}
+
+.main_center2{
+	float:left;
+	margin:10px 0 0 10px;
+	width:787px;
+}
+
+.main_center2 h1{
+	background-color:#f9f9f9;
+	text-align:center;
+	width:787px;
+}
+
+.main_center3{
+	float:left;
+	margin:10px 0 0 10px;
+	width:787px;
+	height:500px;
+
+}
+
+.main_center3 h1{
+	background-color:#f9f9f9;
+	text-align:center;
+	width:787px;
+}
+
+.communitybox {
+	margin:10px 0 0 10px;
+	float:left;
+	width:377px;
+	height:188px;
+}
+
+.main_right_notice{
+	float:left;
+	width:250px;
+	height:210px;
+	margin-top:10px;
+}
+
+.main_right_notice h1{
+	background-color:#f9f9f9;
+	text-align:center;
+	width:250px;
+}
+
+.title_b								{}
+.cb_i									{float:left;padding:1px 3px 0px 2px;}
+.cb_i_								{float:left;padding:0px 3px 0px 2px;margin-top:-1px;}
+.cb_t									{float:left;color:#666666;font-weight:bold;}
+.cb_m								{float:right;padding:8px 5px 0px 0px;}
+
+.title_l								{padding-top:3px;}
+.title_ll								{float:left;width:6px;height:14px;background: url('images/community_bbs_title_line_left.gif') no-repeat;;}
+.title_lr								{float:left;width:6px;height:14px;background: url('images/community_bbs_title_line_right.gif') no-repeat;;}
+.title_lc								{float:left;height:14px;width:365px;background: url('images/community_bbs_title_line_bg.gif');}
+
+.nClearBoth	 		{ clear:both; margin:0; padding:0; height: 0px; }
+.nClearRight        { clear:right;margin:0; padding:0; height: 0px; }
+
+.cb_list								{padding:4px 0px 0px 2px;}
+.cb_r1								{padding:4px 0px 3px 0px;clear:both;}
+.cb_r1i								{float:left;padding:5px 3px 0px 3px;}
+.cb_r1t								{float:left;overflow:hidden;height:17px;width:190px;}
+.cb_r1n								{float:right;padding-right:4px;font-weight:bold;font-family:돋움;color:#009900;font-size:11px;letter-spacing:-1px;overflow:hidden;white-space:nowrap;width:60px;text-align:right;}
+.cb_r1ib								{width:2px;height:3px;background-color:#ff4200;}
+.cb_r1tc								{font-size:8px;}
+
+</style>
+<style type="text/css">
+/* Reset style */
+* { margin:0; padding:0; word-break:break-all; }
+body { background:#FFF; color:#333; font:12px/1.6em Helvetica, Arial, sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-size:1em; }
+a { color:#0287CA; text-decoration:none; }
+a:hover { text-decoration:underline; }
+ul, li { list-style:none; }
+fieldset, img { border:none; }
+legend { display:none; }
+em, strong, cite, th { font-style:normal; font-weight:normal; }
+input, textarea, select, button { font:12px Helvetica, Arial, sans-serif; }
+table { }
+html { overflow:-moz-scrollbars-vertical; } /*Always show Firefox scrollbar*/
+
+/* iFocus style */
+#ifocus {
+	width:525px;
+	height:245px;
+	margin:10px;
+	border:1px solid #DEDEDE;
+	background:#F8F8F8;
+}
+	#ifocus_pic { display:inline; position:relative; float:left; width:410px; height:225px; overflow:hidden; margin:10px 0 0 10px; }
+		#ifocus_piclist { position:absolute; }
+		#ifocus_piclist li { width:410px; height:225px; overflow:hidden; }
+		#ifocus_piclist img { width:410px; height:225px; }
+	#ifocus_btn { display:inline; float:right; width:91px; margin:9px 9px 0 0; }
+		#ifocus_btn li { width:91px; height:57px; cursor:pointer;  }
+		#ifocus_btn img { width:75px; height:45px; margin:7px 0 0 11px; }
+		#ifocus_btn .current { background: url(images/ifocus_btn_bg.gif) no-repeat; }
+	#ifocus_opdiv { position:absolute; left:0; bottom:0; width:410px; height:35px; background:#000; }
+	#ifocus_tx { position:absolute; left:8px; bottom:8px; color:#FFF; }
+		#ifocus_tx .normal { display:none; }
+</style>
+
+<script type="text/javascript">
+function $(id) { return document.getElementById(id); }
+
+function addLoadEvent(func){
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function(){
+			oldonload();
+			func();
+		}
+	}
+}
+
+function moveElement(elementID,final_x,final_y,interval) {
+  if (!document.getElementById) return false;
+  if (!document.getElementById(elementID)) return false;
+  var elem = document.getElementById(elementID);
+  if (elem.movement) {
+    clearTimeout(elem.movement);
+  }
+  if (!elem.style.left) {
+    elem.style.left = "0px";
+  }
+  if (!elem.style.top) {
+    elem.style.top = "0px";
+  }
+  var xpos = parseInt(elem.style.left);
+  var ypos = parseInt(elem.style.top);
+  if (xpos == final_x && ypos == final_y) {
+		return true;
+  }
+  if (xpos < final_x) {
+    var dist = Math.ceil((final_x - xpos)/10);
+    xpos = xpos + dist;
+  }
+  if (xpos > final_x) {
+    var dist = Math.ceil((xpos - final_x)/10);
+    xpos = xpos - dist;
+  }
+  if (ypos < final_y) {
+    var dist = Math.ceil((final_y - ypos)/10);
+    ypos = ypos + dist;
+  }
+  if (ypos > final_y) {
+    var dist = Math.ceil((ypos - final_y)/10);
+    ypos = ypos - dist;
+  }
+  elem.style.left = xpos + "px";
+  elem.style.top = ypos + "px";
+  var repeat = "moveElement('"+elementID+"',"+final_x+","+final_y+","+interval+")";
+  elem.movement = setTimeout(repeat,interval);
+}
+
+function classNormal(iFocusBtnID,iFocusTxID){
+	var iFocusBtns= $(iFocusBtnID).getElementsByTagName('li');
+	var iFocusTxs = $(iFocusTxID).getElementsByTagName('li');
+	for(var i=0; i<iFocusBtns.length; i++) {
+		iFocusBtns[i].className='normal';
+		iFocusTxs[i].className='normal';
+	}
+}
+
+function classCurrent(iFocusBtnID,iFocusTxID,n){
+	var iFocusBtns= $(iFocusBtnID).getElementsByTagName('li');
+	var iFocusTxs = $(iFocusTxID).getElementsByTagName('li');
+	iFocusBtns[n].className='current';
+	iFocusTxs[n].className='current';
+}
+
+function iFocusChange() {
+	if(!$('ifocus')) return false;
+	$('ifocus').onmouseover = function(){atuokey = true};
+	$('ifocus').onmouseout = function(){atuokey = false};
+	var iFocusBtns = $('ifocus_btn').getElementsByTagName('li');
+	var listLength = iFocusBtns.length;
+	iFocusBtns[0].onmouseover = function() {
+		moveElement('ifocus_piclist',0,0,5);
+		classNormal('ifocus_btn','ifocus_tx');
+		classCurrent('ifocus_btn','ifocus_tx',0);
+	}
+	if (listLength>=2) {
+		iFocusBtns[1].onmouseover = function() {
+			moveElement('ifocus_piclist',0,-225,5);
+			classNormal('ifocus_btn','ifocus_tx');
+			classCurrent('ifocus_btn','ifocus_tx',1);
+		}
+	}
+	if (listLength>=3) {
+		iFocusBtns[2].onmouseover = function() {
+			moveElement('ifocus_piclist',0,-450,5);
+			classNormal('ifocus_btn','ifocus_tx');
+			classCurrent('ifocus_btn','ifocus_tx',2);
+		}
+	}
+	if (listLength>=4) {
+		iFocusBtns[3].onmouseover = function() {
+			moveElement('ifocus_piclist',0,-675,5);
+			classNormal('ifocus_btn','ifocus_tx');
+			classCurrent('ifocus_btn','ifocus_tx',3);
+		}
+	}
+}
+
+setInterval('autoiFocus()',5000);
+var atuokey = false;
+function autoiFocus() {
+	if(!$('ifocus')) return false;
+	if(atuokey) return false;
+	var focusBtnList = $('ifocus_btn').getElementsByTagName('li');
+	var listLength = focusBtnList.length;
+	for(var i=0; i<listLength; i++) {
+		if (focusBtnList[i].className == 'current') var currentNum = i;
+	}
+	if (currentNum==0&&listLength!=1 ){
+		moveElement('ifocus_piclist',0,-225,5);
+		classNormal('ifocus_btn','ifocus_tx');
+		classCurrent('ifocus_btn','ifocus_tx',1);
+	}
+	if (currentNum==1&&listLength!=2 ){
+		moveElement('ifocus_piclist',0,-450,5);
+		classNormal('ifocus_btn','ifocus_tx');
+		classCurrent('ifocus_btn','ifocus_tx',2);
+	}
+	if (currentNum==2&&listLength!=3 ){
+		moveElement('ifocus_piclist',0,-675,5);
+		classNormal('ifocus_btn','ifocus_tx');
+		classCurrent('ifocus_btn','ifocus_tx',3);
+	}
+	if (currentNum==3 ){
+		moveElement('ifocus_piclist',0,0,5);
+		classNormal('ifocus_btn','ifocus_tx');
+		classCurrent('ifocus_btn','ifocus_tx',0);
+	}
+	if (currentNum==1&&listLength==2 ){
+		moveElement('ifocus_piclist',0,0,5);
+		classNormal('ifocus_btn','ifocus_tx');
+		classCurrent('ifocus_btn','ifocus_tx',0);
+	}
+	if (currentNum==2&&listLength==3 ){
+		moveElement('ifocus_piclist',0,0,5);
+		classNormal('ifocus_btn','ifocus_tx');
+		classCurrent('ifocus_btn','ifocus_tx',0);
+	}
+}
+addLoadEvent(iFocusChange);
+</script>
+</head>
+
+<body>
+ <div id="container">
+	    <div class="top-menu-row">
+	        <div class="row">
+	            <div class="top-menu fl">
+                    <ul>
+                        <li><a href="#">로그인</a></li>
+                        <li><a href="#">로그아웃</a></li>
+                        <li><a href="#">회원가입</a></li>
+                        <li><a href="#">회원정보</a></li>
+                        <li><a href="#">예약확인/결제</a></li>
+                        <li><a href="#">고객센터</a></li>
+                	</ul>
+	            </div>
+            </div>
+        </div>
+
+    <!-- /.top-info -->
+    <div class="header">
+        <div class="row">
+            <div class="logo fl"></div>
+            <div class="search-form">
+         			<form action="http://www.xiazaiba.com/?ct=search" method="post">
+                    <input value="1" name="i" type="hidden">
+                    <input id="keyword" autocomplete="off" class="search-wrod search-wrod-focus" name="q" placeholder="" x-webkit-speech="" speech="" type="text">
+                    <button type="submit" class="search-btn">바로검색</button>
+                	</form>
+                    <div class="search-keys">
+                          <a href="http://xiazai.xiazaiba.com/Soft/Y/YoudaoDict_xiazaiba.tuijian.exe" target="_blank" class="c666">금면왕조D구역최저가150원</a>
+                          <a href="http://down2.uc.cn/ucbrowser/v2/index.php?read=ok&amp;pub=lcy@xiazaiba.com&amp;id=&amp;title=&amp;url=" target="_blank" class="c666">북경관광가이드400원</a>
+                          <a href="http://www.xiazaiba.com/html/1821.html" target="_blank" class="c666">이원극장경극150원~</a>
+                    </div>
+
+             </div>
+                    <div class="search-test">
+                 		<a href="" target="_blank"><img src="images/ad.gif" alt="" border="0" height="80" width="295"></a>
+                    </div>
+        </div>
+    </div>
+
+    <!-- /.header -->
+        <div class="mian-menu">
+        <div class="row">
+            <ul class="mian-nav" id="j_main_nav">
+                <li><a href="#">자유여행</a></li>
+                <li><a href="#">골프</a></li>
+                <li> <a href="#">차량렌트</a></li>
+                <li><a href="#">항공티켓</a></li>
+                <li> <a href="#">호텔</a></li>
+                <li> <a href="#">가이드통역</a></li>  <li> <a href="#">커뮤니티</a></li>
+
+            </ul>
+        </div>
+		</div>
+	<!-- /.mian-menu -->
+
+<div class = "main">
+    <div class = "row">
+   	  <div class =  "main_left">
+      <div class = "main_left_login">
+        <div class="login_form">
+             <table align = left cellpadding="0" cellspacing="0">
+            <tr>
+            <td width="199" bgcolor="#e5e5e5"></td>
+            </tr>
+            <tr>
+            <td height="110"><table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+            <td height="8"></td>
+            </tr>
+            <tr>
+            <td width="9" height="95"></td>
+            <td width="182" valign="top"><table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+            <td height="27"><img src="images/login-title.gif" border="0"></td>
+            </tr>
+            <tr>
+            <td><!-- 아이디, 비밀번호찾기부분 -->
+            <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+            <td width="29" height="24"><img src="images/id.gif"></td>
+            <td width="110"><input type="text"  tabIndex="1" value = "아이디" style="width:104px; height:17px; border:solid 1px #c3c3c3;background-color:#eaeaea"></td>
+            <td rowspan="2"><a href="#"><img src="images/login_btn.gif" border="0" tabIndex="3"></a></td>
+            </tr>
+            <tr>
+            <td width="29"><img src="images/pw.gif"></td>
+            <td width="110"><input type="text" tabIndex="2" value = "비밀번호" style="width:104px; height:17px; border:solid 1px #c3c3c3; background-color:#eaeaea"></td>
+            </tr>
+            </table></td>
+            </tr>
+            <!-- /아이디, 비밀번호찾기부분 -->
+            <tr>
+            <td><!-- 바탄부분 -->
+            <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+            <td height="11"></td>
+            </tr>
+            <tr>
+            <td width="76"><a href="#"><img src="images/login_btn01.gif" border="0"></a></td>
+            <td><a href="#"><img src="images/login_btn02.gif" border="0"></a></td>
+            </tr>
+            </table></td>
+            </tr>
+            </table>
+            </table>
+            </table>
+        </div> <!-- login_form -->
+        </div>
+        <div class = "main_left2">
+          <p class = "left_btn"><a href="#">예약 문의</a></p>
+          <p class = "left_btn"><a href="#">질문 답변</a></p>
+		</div><!-- main_left2 -->
+
+        <div class ="main_calendar">
+			<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+            <!--
+            calendar();
+			startclock();
+			//timerONE=window.setTimeout();
+            //-->
+            </SCRIPT>
+		</div><!-- main_calendar -->
+
+    	<div class = "main_left_content">
+        <h1>예약상담안내</h1>
+        <h2>북경본사:</h2>
+        <p>전화:123456789</p>
+        <p>핸드폰:123456789</p>
+        <h2>MSN 실시간상담:</h2>
+        <p>jsbtour@hotmail.com</p>
+        <h2>한국연락처</h2>
+        <h1>근무시간</h1>
+        <p>평일    9:00 - 18:00</p>
+        <p>토요일: 10:00 - 16:00</p>
+        <p>일요일: 공휴일 휴무</p>
+        <h1>온라인 입금 계좌번호</h1>
+        <p>한국에서 입금시</p>
+        <p>국민은행:</p>
+        <p>계좌번호:123456789</p>
+        <p>예금주:서세호</p>
+        <p>중국에서 입금시</p>
+        <p>中国工商银行</p>
+        <p>卡号:11111111111112123</p>
+        <p>收款人:徐世浩</p>
+        </div> <!-- main_left_content -->
+
+        <div class = "main_left_money border">
+        	<h1>외환은행</h1>
+            <p>ABCD</p>
+        </div><!-- main_left_money -->
+
+        <div class ="main_left_weather border">
+        	<h1>날씨 정보</h1>
+            <p>오늘의 날씨:</p>
+            <p>내일  날씨:</p>
+        </div><!-- main_left_weather -->
+
+        <div class ="main_left_visitor border">
+        	<h1>사이트 통계</h1>
+            <p>전체 방문수:</p>
+            <p>오늘 방분수:</p>
+        </div><!-- main_left_visitor -->
+
+      </div> <!-- /.main-left-->
+
+  <div class = "main_center">
+    <div id="ifocus">
+        <div id="ifocus_pic">
+            <div id="ifocus_piclist" style="left:0; top:0;">
+                <ul>
+                    <li><a href="http://www.alixixi.com/" target="_blank"><img src="images/01.jpg" alt="jsb투어" /></a></li>
+                    <li><a href="http://www.alixixi.com/" target="_blank"><img src="images/02.jpg" alt="jsb투어" /></a></li>
+                    <li><a href="http://www.alixixi.com/" target="_blank"><img src="images/03.jpg" alt="jsb투어" /></a></li>
+                    <li><a href="http://www.alixixi.com/" target="_blank"><img src="images/04.jpg" alt="jsb투어" /></a></li>
+                </ul>
+            </div>
+	            	<div id="ifocus_opdiv"></div>
+	            <div id="ifocus_tx">
+	                <ul>
+	                    <li class="current">북경 고궁 a1</li>
+	                    <li class="normal">북경 경극 b2</li>
+	                    <li class="normal">북경 천안문 c3</li>
+	                    <li class="normal">북경 만리장성 d4</li>
+	                </ul>
+	            </div>
+         </div>
+	        <div id="ifocus_btn">
+	            <ul>
+	                <li class="current"><img src="images/btn_01.jpg" alt="" /></li>
+	                <li class="normal"><img src="images/btn_02.jpg" alt="" /></li>
+	                <li class="normal"><img src="images/btn_03.jpg" alt="" /></li>
+	                <li class="normal"><img src="images/btn_04.jpg" alt="" /></li>
+	            </ul>
+	        </div>
+    </div><!-- ifocus -->
+
+    <div class ="main_air">
+    	<div class ="main_air_left">
+            <ul style="margin-left: 0px;" class="">
+            <li class=><a href="#tcb_lif"><span class="ir">중국선</span></a></li>
+            <li class=><a href="#tcb_lif"><span class="ir">국제선</span></a></li>
+            </ul>
+        </div> <!-- main_air_left -->
+	</div><!-- main_air -->
+
+</div> <!-- main_center -->
+<!-- ifocus photo -->
+
+<div class = "main_right">
+    <div class="right-txt fr" id="j_index_focus_box">
+        <ul class="mod-tab" rel="xtaberTabs">
+        <li rel="xtaberTabItem" class="current">공지사항</li>
+        <li class="" rel="xtaberTabItem">계시판</li>
+        <li class="" rel="xtaberTabItem">문답 QA</li>
+        <!--<li rel="xtaberTabItem">单机游戏</li>-->
+        </ul>
+
+        <div rel="xtaberItems">
+            <div style="display: block;" class="xtaber-item">
+                <div class="txt-top">
+                <strong class="h2"><a href="#" target="_blank">'쩐의전쟁'출연, 노숙자가 150억 벌어</a></strong>
+                <p class="desc c666">주식투자에 실패해 노숙자 생활을 하던 40대 남자가 주식으로 3년만에 150억이 넘...<a href="#" target="_blank" class="imp">[더보기]</a></p>
+                </div>
+                    <ul class="txt-list main-txt h3">
+
+                    <li><a class="imp" href="#" target="_blank">[톱뉴스]</a>  <a href="#" target="_blank">영단어 암기율97% 만드는 법 화제!!</a></li>
+
+                    <li><a class="imp" href="#" target="_blank">[실시간]</a>  <a href="#" target="_blank">VJ특공대 100억 번 주식고수...충격!</a></li>
+
+                    <li><a class="imp" href="#" target="_blank">[실시긴]</a>  <a href="#" target="_blank">'패션디자이너의 꿈' 동아TV 디아프에서!</a></li>
+
+                    <li><a class="imp" href="#" target="_blank">[연예인]</a>  <a href="#" target="_blank">대명리조트 특별할인 분양! 무료혜택까지..</a></li>
+
+                    <li><a class="imp" href="#" target="_blank">[스포츠]</a>  <a href="#" target="_blank">간호사, 사망환자와 찍은 사진 올려 '...</a></li>
+
+                    <li><a class="imp" href="#" target="_blank">[연예인]</a>  <a href="#" target="_blank">헤럴드 굿 뉴스, '마이뉴스' 설정으로</a></li>
+
+                    <li><a class="imp" href="#" target="_blank">[스포츠]</a>  <a href="#" target="_blank">눈썹 진해지는법!연예인눈썹비밀공개</a></li>
+
+                    <li><a class="imp" href="#" target="_blank">[스포츠]</a>  <a href="#" target="_blank">남성 건강보양식 이만한게 없다</a></li>
+
+                    <li><a class="imp" href="#" target="_blank">[스포츠]</a>  <a href="#" target="_blank">아이리스2 이다해 가방 완판!</a></li>
+
+                    <li><a class="imp" href="#" target="_blank">[연예인]</a>  <a href="#" target="_blank">신민아 도플겡어女, 입만열면 "헉"</a></li>
+
+                    <li><a class="imp" href="#" target="_blank">[연예인]</a>  <a href="#" target="_blank">아이리스2 이다해 가방 완판!</a></li>
+                    </ul>
+            </div>
+        </div><!-- /.xtaber-item -->
+    </div>
+</div> <!-- ./main-right-->
+ <div class ="main_right_notice border"><h1>입금확인공지</h1>
+
+
+<marquee style="WIDTH: 250px; HEIGHT: 180px" scrollamount="2" direction="up">
+<div align="left" ></div>
+<center ><font face="굴림" color="#008000" size="2" ></font ></center>
+<div align="left">
+</div>
+<center>
+<p><font color="#ff6600" size="2" >김**님의 입금이 확인되였습니다. </font></p>
+<p><font color="#ff4500" size="2" >김**님의 입금이 확인되였습니다. </font></p>
+<p><font color="#ff3300" size="2" >김**님의 입금이 확인되였습니다. </font></p>
+<p><font color="#ff6600" size="2" >김**님의 입금이 확인되였습니다. </font></p>
+<p><font color="#ff4500" size="2" >김**님의 입금이 확인되였습니다. </font></p>
+<p><font color="#ff3300" size="2" >김**님의 입금이 확인되였습니다. </font></p>
+<p><font color="#ff6600" size="2" >김**님의 입금이 확인되였습니다. </font></p>
+<p><font color="#ff4500" size="2" >김**님의 입금이 확인되였습니다. </font></p>
+<p><font color="#ff3300" size="2" >김**님의 입금이 확인되였습니다. </font></p>
+<p><font color="#ff6600" size="2" >김**님의 입금이 확인되였습니다. </font></p>
+<p><font color="#ff4500" size="2" >김**님의 입금이 확인되였습니다. </font></p>
+<p><font color="#ff3300" size="2" >김**님의 입금이 확인되였습니다. </font></p>
+</center>
+</marquee>
+
+
+ </div> <!-- main_right_notice -->
+
+<div class ="main_center2 border">
+  <h1>호텔 사우나 음식 특색 정보</h1>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</div><!-- main_center2 -->
+
+<div class ="main_center3 border">
+  <h1>커뮤니티</h1>
+
+	<div class ="communitybox border">
+        <div class="title_b">
+            <div class="cb_i"><img src="images/main_bt1.gif" alt="" height="14" width="15"></div>
+            <div class="cb_t"><a href="">자유게시판</a></div>
+            <div class="cb_m"><a href=""><img src="images/bbs_best_more.gif" alt="" height="5" width="33"></a></div>
+            <div class="nClearBoth"><span></span></div>
+            <div class="title_l">
+                <div class="title_ll"><span></span></div>
+                <div class="title_lc"><span></span></div>
+                <div class="title_lr"><span></span></div>
+            </div>
+            <div class="nClearBoth"><span></span></div>
+
+            <div class="cb_list">
+                        <ul>
+                            			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">대화방친구들 다 어디갔을가?ㅋ</a> <span class="cb_r1tc"></span></div>
+				<div class="cb_r1n">하나야</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">패끼</a> <span class="cb_r1tc">[2]</span></div>
+				<div class="cb_r1n">널쓰게보니</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">기분은</a> <span class="cb_r1tc">[12]</span></div>
+				<div class="cb_r1n">이하이</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">내</a> <span class="cb_r1tc">[7]</span></div>
+				<div class="cb_r1n">이하이</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">주말인데 머할까?</a> <span class="cb_r1tc"></span></div>
+				<div class="cb_r1n">새빨간청춘</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">ㅠㅠ 힘들다</a> <span class="cb_r1tc">[1]</span></div>
+				<div class="cb_r1n">은Ha</div>
+			</li>
+                        </ul>
+                    </div>
+
+        </div>
+    </div> <!-- communitybox end -->
+
+    <div class ="communitybox border">
+        <div class="title_b">
+            <div class="cb_i_"><img src="images/main_bt2.gif" alt="" height="15" width="15"></div>
+            <div class="cb_t"><a href="">토론방 이슈</a></div>
+            <div class="cb_m"><a href=""><img src="images/bbs_best_more.gif" alt="" height="5" width="33"></a></div>
+        </div>
+        <div class="nClearBoth"><span></span></div>
+            <div class="title_l">
+            <div class="title_ll"><span></span></div>
+            <div class="title_lc"><span></span></div>
+            <div class="title_lr"><span></span></div>
+            </div>
+        <div class="nClearBoth"><span></span></div>
+
+
+        <div class="cb_list">
+                        <ul>
+
+                            			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">민족성 분석</a> <span class="cb_r1tc">[18]</span></div>
+				<div class="cb_r1n">흑룡하</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">대국의 위상이 조선족의 위상을 만들었다.</a> <span class="cb_r1tc">[15]</span></div>
+				<div class="cb_r1n">맵짠남자99</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">환향녀와 호로 자식</a> <span class="cb_r1tc">[9]</span></div>
+				<div class="cb_r1n">흑룡하</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">박근혜가 북한에 주는 영향</a> <span class="cb_r1tc">[11]</span></div>
+				<div class="cb_r1n">룡정인임다</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">구지 조선족이 아니여도</a> <span class="cb_r1tc">[12]</span></div>
+				<div class="cb_r1n">산중임니다</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">인터넷 공간에서의 사고력의 발전</a> <span class="cb_r1tc">[11]</span></div>
+				<div class="cb_r1n">직승기01</div>
+			</li>
+                        </ul>
+                    </div>
+
+    </div> <!-- communitybox end -->
+
+
+<div class ="communitybox border">
+                <div class="title_b">
+                            <!-- <div class="cb_i"><img src="/images/main/main_bt3.gif" width="15" height="14" alt="" /></div> -->
+                        <div class="cb_i"><img src="images/main_bt7.gif" alt="" height="13" width="13"></div>
+                        <div class="cb_t"><a href="#">모임 &amp; 행사 &amp; 이벤트</a></div>
+                        <div class="cb_m"><a href="#"><img src="images/bbs_best_more.gif" alt="" height="5" width="33"></a></div>
+                    </div>
+                    <div class="nClearBoth"><span></span></div>
+                    <div class="title_l">
+                        <div class="title_ll"><span></span></div>
+                        <div class="title_lc"><span></span></div>
+                        <div class="title_lr"><span></span></div>
+                    </div>
+                    <div class="nClearBoth"><span></span></div>
+
+
+                    <div class="cb_list">
+                        <ul>
+                            			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">시민건강 걷기운동(연변주걷기협회)</a> <span class="cb_r1tc">[1]</span></div>
+				<div class="cb_r1n">alpnith</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">&lt;羽毛球&gt; 조선족 배드민턴팀 회원 모집</a> <span class="cb_r1tc"></span></div>
+				<div class="cb_r1n">죤슨</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">2013년(왕징)北京WETOP足球俱乐部조선족축구팀회원모집함...............</a> <span class="cb_r1tc">[1]</span></div>
+				<div class="cb_r1n">kamin502</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">판위 야쥐러 근처 배드맨턴팀 구인</a> <span class="cb_r1tc"></span></div>
+				<div class="cb_r1n">김태수</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">왕징3구- 축구팀 팀원 모집합니당.</a> <span class="cb_r1tc"></span></div>
+				<div class="cb_r1n">kini</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">축구팀 인원 모집합니다</a> <span class="cb_r1tc"></span></div>
+				<div class="cb_r1n">만보부동산</div>
+			</li>
+                        </ul>
+                    </div>
+
+    </div><!-- communitybox end -->
+
+    <div class ="communitybox border">
+        <div class="title_b">
+            <div class="cb_i"><img src="images/main_bt4.gif" alt="" height="15" width="15"></div>
+            <div class="cb_t"><a href="#">자작글마당</a></div>
+            <div class="cb_m"><a href="#"><img src="images/bbs_best_more.gif" alt="" height="5" width="33"></a></div>
+        </div>
+        <div class="nClearBoth"><span></span></div>
+            <div class="title_l">
+            <div class="title_ll"><span></span></div>
+            <div class="title_lc"><span></span></div>
+            <div class="title_lr"><span></span></div>
+            </div>
+        <div class="nClearBoth"><span></span></div>
+
+          <div class="cb_list">
+                        <ul>
+                            			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">뿌리를 찾아가는 한장의 落叶</a> <span class="cb_r1tc">[1]</span></div>
+				<div class="cb_r1n">snow2520</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">지난일기(18)</a> <span class="cb_r1tc">[8]</span></div>
+				<div class="cb_r1n">동수1101</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">지난일기(17)</a> <span class="cb_r1tc">[6]</span></div>
+				<div class="cb_r1n">동수1101</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">살구꽃 복사꽃 피는 계절에</a> <span class="cb_r1tc"></span></div>
+				<div class="cb_r1n">꿈하늘</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">지난일기(16)</a> <span class="cb_r1tc">[27]</span></div>
+				<div class="cb_r1n">동수1101</div>
+			</li>			<li class="cb_r1">
+				<div class="cb_r1i"><div class="cb_r1ib"><span></span></div></div>
+				<div class="cb_r1t"><a href="#">지난일기(15)</a> <span class="cb_r1tc">[10]</span></div>
+				<div class="cb_r1n">동수1101</div>
+			</li>
+                        </ul>
+                    </div>
+
+    </div><!-- communitybox end -->
+</div><!-- main_center2 -->
+
+</div> <!-- ./main-center-->
+</div> <!-- main row -->
+
+
+
+</div> <!-- main end -->
+</div><!-- /.container -->
+
+<div class="footer">
+        <p class="site-link">
+            <ul>
+                </li><li><a href = "#">회사소개</a></li>
+                <li><a href = "#">개인정보 정책</a></li>
+                <li><a href = "#">여행약관</a></li>
+                <li><a href = "#">서비스 이용약관</a></li>
+                <li><a href = "#">고객센터</a></li>
+            </ul>
+        </p>
+        <p class="site-desc"> 중국:북경시조양구왕징원401번둥아왕징쎈터A좌1909호</p>
+        <p class="copy-right">Copyright  &#169;2008-2012 JSB Tour BeiJing.All Rights Reserved. Mail: jsbtour#hotmail.com(#d@)</p>
+</div><!-- /.footer -->
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JSB투어 :: 북경여행,항공티켓,호텔예약</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+
+<!-- {$t_dir} -->
+<link href="{$t_dir}css/reset.css" rel="stylesheet" type="text/css" />
+<link href="{$t_dir}css/main_20130319.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$t_dir}js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="{$t_dir}js/ad_photo.js"></script>
+</head>
+<body>
+{include "header.html"}
+<div class="row">
+<!--判断是否登陆{if $login_status}-->
+<br>
+<h1 align="center">로그인에 성공하였습니다！<br><a href="index.php">메인으로가기</a></h1>
+<br>
+<!--结束{else}-->
+<div class="login-window">
+	<form id="login-form" action="login.php?act=login" method="post">
+              <font color="Red">
+        {$error[0]}<br />
+    </font>
+		<fieldset>
+		
+			<legend>Log in</legend>
+			
+			<label for="login">아이디</label>
+			<input type="text" id="login" name="username"/>
+			<div class="clear"></div>
+			
+			<label for="password">비밀번호</label>
+			<input type="password" id="password" name="password"/>
+			<div class="clear"></div>
+			
+			<label for="remember_me" style="padding: 0;">아이디 저장?</label>
+			<input type="checkbox" id="remember_me" style="position: relative; top: 3px; margin: 0; " name="remember_me"/>
+			<div class="clear"></div>
+			
+			<br />
+			
+			<input type="submit" style="margin: -20px 0 0 287px;" class="button" name="commit" value="Log in"/>	
+	  </fieldset>
+	</form>
+</div>
+<!--{/if}-->
+</div>
+{include "footer.html"}
+</body>
+</html>
+

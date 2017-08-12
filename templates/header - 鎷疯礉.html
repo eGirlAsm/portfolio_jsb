@@ -1,0 +1,64 @@
+
+<div class="row">
+  <div class="top-menu-row">
+    <div class="top-menu fr">
+      <ul>
+        <!--IF如果存在姓名{if $smarty.session.username}则-->
+        <li class="first"><a href="userinfo.php?id={$smarty.session.user_id}">{$smarty.session.username}&nbsp;님</a></li>
+        <li><a href="logout.php">로그아웃</a></li>
+        <!--否则{else}-->
+        <li class="first"><a href="login.php">로그인</a></li>
+        <li><a href="register.php?page=1">회원가입</a></li>
+        <!--结束IF{/if}-->
+        <li><a href="#">회원클럽</a></li>
+        <li><a href="#" onClick="window.external.addFavorite('http://www.moonyuan.com/jsbtour')" title="jsb투어">즐겨찾기</a></li>
+        <li><a href="problem.php?">고객센터</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="header">
+  <div class="row">
+    <div class="logo fl"></div>
+    <div class="search-form">
+      <form action="search.php?" method="post">
+        <input value="1" name="i" type="hidden">
+        <input id="keyword" autocomplete="off" class="search-wrod search-wrod-focus" name="q" placeholder="" x-webkit-speech="" speech="" type="text">
+        <button type="submit" class="search-btn">바로검색</button>
+      </form>
+      <div class="search-keys"> <a href="#" target="_blank" class="c666">금면왕조D구역최저가150원</a> <a href="#" target="_blank" class="c666">북경관광가이드400원</a> <a href="#" target="_blank" class="c666">이원극장경극150원~</a> </div>
+    </div>
+    <div class="search-test"> <a href="appointment.php?mode=write&amp;menuID=101" target="_blank"><img src="{$t_dir}images/ad.gif" alt="" border="0" height="80" width="295"></a> </div>
+  </div>
+</div>
+<!-- /.header -->
+
+<div class="main-menu">
+  <div class="row">
+    <ul id="nav">
+      <li><a href="http://www.moonyuan.com/jsbtour/">메인</a></li>
+      {section name=loop loop=$nav_menu} 
+      {if $nav_menu[loop].ischild == 0}
+     
+      <li rel="{$nav_menu[loop].menuID}"><a href="{$nav_menu[loop].linkurl}menuID={$nav_menu[loop].menuID}">{$nav_menu[loop].menuTitle}</a>
+       {if $nav_menu[loop].subMenuCount > 0}
+        <ul>
+          {section name=t loop=$sub_menu}
+          {if $nav_menu[loop].menuID ==  $sub_menu[t].parentID}
+          <li> <a href="{$sub_menu[t].linkurl}&amp;menuID={$nav_menu[loop].menuID}">{$sub_menu[t].menuTitle}</a> </li>
+          {/if}
+          {/section}
+        </ul>
+        {/if} </li>
+      {/if}
+      {/section}
+    </ul>
+  </div>
+  <!-- row --> 
+  
+  <!-- sub menu --> 
+  
+</div>
+<!-- /.mian-menu --> 
+
+<script type="text/javascript" src="{$t_dir}js/common.js"></script> 
