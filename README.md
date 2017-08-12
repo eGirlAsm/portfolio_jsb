@@ -3,7 +3,7 @@ use the smarty template php framework my first php portfolio in 2013/2/18 at bei
 
 see http://jsb.portfolio.egirlasm.me/
 
-i was fix the admin page and try restored mysql db data
+i was try fixed the admin page and  restored mysql db data
 
 ## admin login 
 
